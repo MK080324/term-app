@@ -1,0 +1,9 @@
+# 敏感配置 —— 永远不进仓库
+config.env
+
+# 编译产物
+totp-gate/totp-gate
+
+# 杂项
+*.log
+.DS_Store

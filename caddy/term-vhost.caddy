@@ -1,0 +1,7 @@
+# 把这一段追加到你现有的 Caddyfile 末尾 (例: /root/tutor-app/Caddyfile)。
+# 域名换成你 config.env 里的 DOMAIN。不要动原有其它 vhost。
+#
+# host.docker.internal 指向宿主机, 需要 caddy 容器带 extra_hosts (见 README 第 4 步)。
+term.gagamin.com {
+	reverse_proxy host.docker.internal:4180
+}
