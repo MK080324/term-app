@@ -146,8 +146,10 @@ After=network.target
 User=${unix}
 WorkingDirectory=${home}
 Environment=LANG=en_US.UTF-8 LC_ALL=en_US.UTF-8 TERM=xterm-256color
+# macOptionIsMeta=true: 让 macOS 的 Option 键当 Meta/Alt 用 (等价原生终端的
+#   "option as alt"), 这样 cc 的 Option+t 等快捷键才生效, 而不是打出 † 之类特殊字符。
 # 想要"关页面/掉线后重连能续上会话", 把下面 bash --login 换成:  tmux new -A -s web
-ExecStart=/usr/local/bin/ttyd -i 127.0.0.1 -p ${port} -W -t fontSize=14 bash --login
+ExecStart=/usr/local/bin/ttyd -i 127.0.0.1 -p ${port} -W -t fontSize=14 -t macOptionIsMeta=true bash --login
 Restart=always
 RestartSec=2
 
